@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+  {{ course.name }}
+{% endblock title %}
+{% block content %}
+  <h1>{{ course.course_code }} {{ course.course_name_en }}</h1>
+  <h2>{{ course.course_name_cn }}</h2>
+  <p>
+    Prerequisites: {{ course.course_prerequisites }}, Type: {{ course.course_type }}, Unit(s): {{ course.course_units }}
+  </p>
+  <hr />
+  {{ course.course_description | safe }}
+  <hr />
+  <p>Last Update: {{ course.update_time }}</p>
+{% endblock content %}

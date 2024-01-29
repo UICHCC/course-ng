@@ -1,0 +1,256 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+  {{ course.name }}
+{% endblock title %}
+{% block extracss %}
+  <style>
+    .accordion-preview .collapse:not(.show) {
+      display: block;
+    }
+
+    .accordion-preview .collapse:not(.show) .accordion-body {
+      max-height: 8rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .accordion-preview .collapse:not(.show) .accordion-body:after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      content: "";
+      background: linear-gradient(to top,
+          rgba(255, 255, 255, 1) 5%,
+          rgba(255, 255, 255, 0) 60%);
+      pointer-events: none;
+      /* so the text is still selectable */
+    }
+
+    .course_attribute {
+      color: #666;
+      line-height: 22px;
+      margin-bottom: 2px;
+      padding-left: 136px;
+      position: relative;
+    }
+
+    .course_attribute>strong {
+      color: #000;
+      display: inline-block;
+      left: 0;
+      position: absolute;
+      width: auto;
+    }
+  </style>
+{% endblock extracss %}
+{% block content %}
+  <div class="my-3">
+    <!-- Course Title -->
+    <div class="d-lg-flex justify-content-between py-2">
+      <div>
+        <h1>
+          <span class="text-primary"><strong>{{ course.course_code }}</strong></span> {{ course.course_name_en }}
+        </h1>
+        <h2 class="text-secondary">{{ course.course_name_cn }}</h2>
+      </div>
+      <div class="d-flex flex-column align-items-end align-self-center">
+        <h2>
+          <span class="badge bg-primary">{{ course.course_units }} units</span>
+        </h2>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg"
+               width="16"
+               height="16"
+               fill="currentColor"
+               class="bi bi-calendar-event"
+               viewBox="0 0 16 16">
+            <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z" />
+            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
+          </svg>
+          <span class="badge bg-secondary">Data Date: {{ course.update_time }}</span></span>
+        </div>
+      </div>
+      <!-- Course Metadata -->
+      <div class="d-lg-flex justify-content-between">
+        <div class="flex-fill border-top border-bottom p-2 me-3 mb-3">
+          <p class="course_attribute">
+            <strong>
+              <svg xmlns="http://www.w3.org/2000/svg"
+                   width="16"
+                   height="16"
+                   fill="currentColor"
+                   class="bi bi-hash"
+                   viewBox="0 0 16 16">
+                <path d="M8.39 12.648a1 1 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1 1 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.51.51 0 0 0-.523-.516.54.54 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532s.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531s.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z" />
+              </svg>
+              Type</strong> {{ course.get_course_type_display }}
+            </p>
+            {% if course.course_prerequisites %}
+              <p class="course_attribute">
+                <strong>
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                       width="16"
+                       height="16"
+                       fill="currentColor"
+                       class="bi bi-list-check"
+                       viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3.854 2.146a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 3.293l1.146-1.147a.5.5 0 0 1 .708 0m0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 7.293l1.146-1.147a.5.5 0 0 1 .708 0m0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0" />
+                  </svg>
+                  Prerequisites</strong> {{ course.course_prerequisites }}
+                </p>
+              {% endif %}
+              {% if course.course_exclusions %}
+                <p class="course_attribute">
+                  <strong>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="16"
+                         height="16"
+                         fill="currentColor"
+                         class="bi bi-ban"
+                         viewBox="0 0 16 16">
+                      <path d="M15 8a6.97 6.97 0 0 0-1.71-4.584l-9.874 9.875A7 7 0 0 0 15 8M2.71 12.584l9.874-9.875a7 7 0 0 0-9.874 9.874ZM16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0" />
+                    </svg>
+                    Exclusions</strong> {{ course.course_exclusions }}
+                  </p>
+                {% endif %}
+                <p class="course_attribute">
+                  <strong>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="16"
+                         height="16"
+                         fill="currentColor"
+                         class="bi bi-person-raised-hand"
+                         viewBox="0 0 16 16">
+                      <path d="M6 6.207v9.043a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H6.236a1 1 0 0 1-.447-.106l-.33-.165A.83.83 0 0 1 5 2.488V.75a.75.75 0 0 0-1.5 0v2.083c0 .715.404 1.37 1.044 1.689L5.5 5c.32.32.5.754.5 1.207" />
+                      <path d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
+                    </svg>
+                  Offered In</strong>
+                  {% if course.offered %}
+                    test
+                  {% else %}
+                    No records in the system.
+                  {% endif %}
+                </p>
+                {% for note in course.notes.all %}
+                  <p class="course_attribute">
+                    <strong>
+                      <svg xmlns="http://www.w3.org/2000/svg"
+                           width="16"
+                           height="16"
+                           fill="currentColor"
+                           class="bi bi-pencil-fill"
+                           viewBox="0 0 16 16">
+                        <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z" />
+                      </svg>
+                      Note {{ forloop.counter }}</strong> {{ note.note }}
+                    </p>
+                  {% endfor %}
+                </div>
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">114514 Review</h5>
+                    <div class="container text-center">
+                      <div class="row">
+                        <div class="col align-self-start">
+                          <small>CONTENT</small>
+                          <h4>
+                            <span class="badge bg-success">A+</span>
+                          </h4>
+                        </div>
+                        <div class="col align-self-center">
+                          <small>TEACHING</small>
+                          <h4>
+                            <span class="badge bg-success">A-</span>
+                          </h4>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col align-self-start">
+                          <small>GRADING</small>
+                          <h4>
+                            <span class="badge bg-success">A</span>
+                          </h4>
+                        </div>
+                        <div class="col align-self-center">
+                          <small>WORKLOAD</small>
+                          <h4>
+                            <span class="badge bg-success">A+</span>
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Course Description -->
+              <div class="mb-3">
+                <div class="accordion {% if course.course_description|length > 300 %}accordion-preview{% endif %}"
+                     id="course_description_accordion">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button" disabled>Course Description</button>
+                    </h2>
+                    <div id="course_description"
+                         class="accordion-collapse collapse {% if course.course_description|length < 300 %}show{% endif %}"
+                         data-bs-parent="#course_description_accordion">
+                      <div class="accordion-body">{{ course.course_description | safe }}</div>
+                    </div>
+                    <h2 class="accordion-header">
+                      <button class="accordion-button {% if course.course_description|length > 300 %}collapsed{% endif %}"
+                              type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#course_description"
+                              aria-expanded="{% if course.course_description|length > 300 %}true{% else %}false{% endif %}"
+                              aria-controls="course_description">Expend / Collapse</button>
+                    </h2>
+                  </div>
+                </div>
+              </div>
+              {% if request.user.is_staff %}
+                <div class="card text-bg-danger">
+                  <div class="card-body">
+                    <h5 class="card-title">Moderator Zone</h5>
+                    <a class="btn btn-warning"
+                       href="{% url 'courses:course-update' course.id %}">
+                      <svg xmlns="http://www.w3.org/2000/svg"
+                           width="16"
+                           height="16"
+                           fill="currentColor"
+                           class="bi bi-wrench"
+                           viewBox="0 0 16 16">
+                        <path d="M.102 2.223A3.004 3.004 0 0 0 3.78 5.897l6.341 6.252A3.003 3.003 0 0 0 13 16a3 3 0 1 0-.851-5.878L5.897 3.781A3.004 3.004 0 0 0 2.223.1l2.141 2.142L4 4l-1.757.364zm13.37 9.019.528.026.287.445.445.287.026.529L15 13l-.242.471-.026.529-.445.287-.287.445-.529.026L13 15l-.471-.242-.529-.026-.287-.445-.445-.287-.026-.529L11 13l.242-.471.026-.529.445-.287.287-.445.529-.026L13 11z" />
+                      </svg>
+                    Edit</a>
+                    <a class="btn btn-warning" href="#">
+                      <svg xmlns="http://www.w3.org/2000/svg"
+                           width="16"
+                           height="16"
+                           fill="currentColor"
+                           class="bi bi-pencil-fill"
+                           viewBox="0 0 16 16">
+                        <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z" />
+                      </svg>
+                    Modify Course Note</a>
+                    <a class="btn btn-warning"
+                       href="{% url 'courses:course-delete' course.id %}">
+                      <svg xmlns="http://www.w3.org/2000/svg"
+                           width="16"
+                           height="16"
+                           fill="currentColor"
+                           class="bi bi-trash"
+                           viewBox="0 0 16 16">
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                        <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+                      </svg>
+                    Delete</a>
+                  </div>
+                </div>
+              {% endif %}
+              <h3>Review</h3>
+            </div>
+          {% endblock content %}

@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="row my-5">
+    <div class="col-4">
+      <div class="list-group">
+        <span class="list-group-item list-group-item-action list-group-item-success">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Faculty of Business and Management</h5>
+            <small>FBM</small>
+          </div>
+          <p class="mb-1">工商管理学院</p>
+          <small>7 Programmes</small>
+        </span>
+        <a class="list-group-item">ACCT: Accounting</a>
+        <a class="list-group-item">FIN: Finance</a>
+        <a class="list-group-item">AE: Applied Economic</a>
+        <a class="list-group-item">MHR: Management of Human Resources</a>
+        <a class="list-group-item">MKT: Marketing Management</a>
+        <a class="list-group-item">EBIS: e-Business Management and Information Systems</a>
+        <a class="list-group-item">DMM: Digital Media Management</a>
+        <span class="list-group-item list-group-item-action list-group-item-dark">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">School of Culture and Creativity</h5>
+            <small>SCC</small>
+          </div>
+          <p class="mb-1">文化与创意学院</p>
+          <small>5 Programmes</small>
+        </span>
+        <a class="list-group-item">CCM: Culture, Creativity and Management</a>
+        <a class="list-group-item">MAD: Media Arts and Design</a>
+        <a class="list-group-item">THEM: Tourism, Hospitality and Event Management</a>
+        <a class="list-group-item">AIM: Animation and Interactive Media</a>
+        <a class="list-group-item">MUS: Music Performance</a>
+        <span href="#"
+              class="list-group-item list-group-item-action list-group-item-warning">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Faculty of Humanities and Social Science</h5>
+            <small>FHSS</small>
+          </div>
+          <p class="mb-1">人文社科学院</p>
+          <small>8 Programmes</small>
+        </span>
+        <a class="list-group-item">CCGC</a>
+        <a class="list-group-item">MCOM</a>
+        <a class="list-group-item">PRA</a>
+        <a class="list-group-item">ATS</a>
+        <a class="list-group-item">ELLS</a>
+        <a class="list-group-item">DSS</a>
+        <a class="list-group-item">GAD</a>
+        <a class="list-group-item">SWSA</a>
+        <span href="#"
+              class="list-group-item list-group-item-action list-group-item-primary">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Faculty of Science and Technology</h5>
+            <small>FST</small>
+          </div>
+          <p class="mb-1">理工科技学院</p>
+          <small>9 Programmes</small>
+        </span>
+        <a class="list-group-item">AM</a>
+        <a class="list-group-item">FM</a>
+        <a class="list-group-item">STAT</a>
+        <a class="list-group-item">DS</a>
+        <a class="list-group-item">AI</a>
+        <a class="list-group-item">CST</a>
+        <a class="list-group-item">ENVS</a>
+        <a class="list-group-item">FST</a>
+        <a class="list-group-item">APSY</a>
+      </div>
+    </div>
+    <div class="col-8">
+      <h2>
+        Courses <a href="{% url 'courses:course-add' %}">+</a>
+      </h2>
+      <ul>
+        {% for course in courses %}
+          <li>
+            <a href="{% url 'courses:course-detail' course.id %}">{{ course.course_code }} - {{ course.course_name_en }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endblock content %}
