@@ -3,16 +3,23 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-  {{ course.name }}
+  {{ course.course_code }} {{ course.course_name_en }}
 {% endblock title %}
 {% block content %}
-  <h1>{{ course.course_code }} {{ course.course_name_en }}</h1>
-  <h2>{{ course.course_name_cn }}</h2>
+  <form method="post">{% csrf_token %}
+<h1>Are you sure you want to delete "{{ object }}"?</h1>
+  <div class="control-group">
+      <div class="controls">
+        <button type="submit" class="btn btn-danger">Delete!</button>
+      </div>
+    </div>
+</form>
+  <hr>
+<h3>Course Details:</h3>
+  <h4>{{ course.course_name_cn }}</h4>
   <p>
     Prerequisites: {{ course.course_prerequisites }}, Type: {{ course.course_type }}, Unit(s): {{ course.course_units }}
   </p>
   <hr />
   {{ course.course_description | safe }}
-  <hr />
-  <p>Last Update: {{ course.update_time }}</p>
 {% endblock content %}

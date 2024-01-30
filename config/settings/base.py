@@ -73,10 +73,10 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.humanize",  # Handy template tags
+    "dal",
+    "dal_select2",
     "django.contrib.admin",
     "django.forms",
-    "ckeditor",
-    "courses",
 ]
 THIRD_PARTY_APPS = [
     "crispy_forms",
@@ -84,10 +84,13 @@ THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "django_filters",
+    "ckeditor",
 ]
 
 LOCAL_APPS = [
     "course_ng.users",
+    "courses",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

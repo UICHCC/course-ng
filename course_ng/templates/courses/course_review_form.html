@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+  {{ user.name }}
+{% endblock title %}
+{% block content %}
+  <h1>New Review</h1>
+  <h2>{{ review_course.course_code }} {{ review_course.course_name_en }}</h2>
+  <p>
+    Prerequisites: {{ review_course.course_prerequisites }}, Type: {{ review_course.get_course_type_display }}, Unit(s): {{ review_course.course_units }}
+  </p>
+  <p>Description: {{ review_course.course_description | safe }}</p>
+  <hr />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <form class="form-horizontal"
+        method="post"
+        action="{% url 'courses:create-course-review' course_id %}">
+    {% csrf_token %}
+    {{ form.media }}
+    {{ form|crispy }}
+    <div class="control-group">
+      <div class="controls">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </form>
+  <script>
+(function($) {
+    $('#add-form').click(function() {
+        var index = $('#id_inline_test_models-TOTAL_FORMS').val()
+        var newTable = $('#id_inline_test_models-__prefix__-DELETE').parents('table').clone()
+        newTable.find(':input').each(function() {
+            for (attr of ['name', 'id'])
+                $(this).attr(
+                    attr,
+                    $(this).attr(attr).replace('__prefix__', index)
+                )
+        })
+        newTable.insertBefore($(this))
+        $('#id_inline_test_models-TOTAL_FORMS').val(
+            parseInt($('#id_inline_test_models-TOTAL_FORMS').val()) + 1
+        )
+        newTable.slideDown()
+    })
+})($)
+</script>
+{% endblock content %}
+
