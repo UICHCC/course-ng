@@ -1,0 +1,192 @@
+{% load my_tags %}
+<div class="card mt-3">
+  <div class="card-header">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex flex-column justify-content-end">
+        <h5 class="card-title">{{ review.summary }}</h5>
+          <p class="mb-0">Semester: {{ review.get_semester_display }}</p>
+          <p class="mb-0">Lecturer: {% for lecturer in review.lecturer.all %}
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill"
+               viewBox="0 0 16 16">
+            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+          </svg> {{ lecturer.name }} {% endfor %}</p>
+      </div>
+      <div class="card">
+          <div class="card-body d-flex justify-content-evenly p-2 flex-wrap">
+            <div class="d-flex flex-column justify-content-center align-items-center px-2">
+              <p class="card-title"><span class="text-primary fw-bold fw-small text-uppercase">content</span></p>
+              <h5>{% letter_grade_badge review.content_grade %}</h5>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center px-2">
+              <p class="card-title"><span class="text-primary fw-bold text-uppercase">teaching</span></p>
+              <h5>{% letter_grade_badge review.teaching_grade %}</h5>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center px-2">
+              <p class="card-title"><span class="text-primary fw-bold text-uppercase">grading</span></p>
+              <h5>{% letter_grade_badge review.grading_grade %}</h5>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center px-2">
+              <p class="card-title"><span class="text-primary fw-bold text-uppercase">workload</span></p>
+              <h5>{% letter_grade_badge review.workload_grade %}</h5>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <!-- Review Header -->
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body d-flex justify-content-evenly p-2 flex-wrap">
+            {% if review.quiz %}
+              <span class="text-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                              fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+    <path
+      d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
+  </svg> Quiz</span>
+            {% else %}
+              <span class="text-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+    <path
+      d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+  </svg> Quiz</span>
+            {% endif %}
+            {% if review.assignment %}
+              <span class="text-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                              fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+    <path
+      d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
+  </svg> Assignment</span>
+            {% else %}
+              <span class="text-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+    <path
+      d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+  </svg> Assignment</span>
+            {% endif %}
+            {% if review.essay %}
+              <span class="text-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                              fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+    <path
+      d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
+  </svg> Essay</span>
+            {% else %}
+              <span class="text-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+    <path
+      d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+  </svg> Essay</span>
+            {% endif %}
+            {% if review.project %}
+              <span class="text-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                              fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+    <path
+      d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
+  </svg> Project</span>
+            {% else %}
+              <span class="text-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+    <path
+      d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+  </svg> Project</span>
+            {% endif %}
+            {% if review.attendance %}
+              <span class="text-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                              fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+    <path
+      d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
+  </svg> Attendance</span>
+            {% else %}
+              <span class="text-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+    <path
+      d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+  </svg> Attendance</span>
+            {% endif %}
+            {% if review.reading_material %}
+              <span class="text-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                              fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+    <path
+      d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
+  </svg> Reading Material</span>
+            {% else %}
+              <span class="text-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+    <path
+      d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+  </svg> Reading Material</span>
+            {% endif %}
+            {% if review.presentation %}
+              <span class="text-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                              fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+    <path
+      d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
+  </svg> Presentation</span>
+            {% else %}
+              <span class="text-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+    <path
+      d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+  </svg> Presentation</span>
+            {% endif %}
+            {% if review.mid_term %}
+              <span class="text-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                              fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+    <path
+      d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
+  </svg> Midterm</span>
+            {% else %}
+              <span class="text-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+    <path
+      d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+  </svg> Midterm</span>
+            {% endif %}
+            {% if review.final_exam %}
+              <span class="text-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                              fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+    <path
+      d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
+  </svg> Final Exam</span>
+            {% else %}
+              <span class="text-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+    <path
+      d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+  </svg> Final Exam</span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="row g-0">
+          <span class="text-body fw-bold text-uppercase">content</span>
+          {{ review.content|linebreaks }}
+        </div>
+        <div class="row g-0">
+          <span class="text-body fw-bold text-uppercase">grading</span>
+          {{ review.grading|linebreaks }}
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="row g-0">
+          <span class="text-body fw-bold text-uppercase">teaching</span>
+          {{ review.teaching|linebreaks }}
+        </div>
+        <div class="row g-0">
+          <span class="text-body fw-bold text-uppercase">workload</span>
+          {{ review.workload|linebreaks }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <small class="text-body-secondary">By
+      {% if review.reviewer.name %}{{ review.reviewer.name }}{% else %}UID{{ review.reviewer.id }}{% endif %} at
+      {{ review.submit_date }}{% if review.reviewer == request.user %}
+        <a href="{% url 'courses:update-course-review' review.id %}">Edit</a>{% endif %}</small>
+  </div>
+</div>

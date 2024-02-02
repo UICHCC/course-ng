@@ -11,3 +11,52 @@
   background-color: #f2dede;
   border-color: #eed3d7;
 }
+
+.collapsing {
+  transition: none !important;
+}
+
+
+.bg-ap {
+    background-color: #2e810f;
+}
+
+.bg-a {
+    background-color: #64b616;
+}
+
+.bg-am {
+    background-color: #87c24a;
+}
+
+.bg-bp {
+    background-color: #b7bb4c;
+}
+
+.bg-b {
+    background-color: #bbc236;
+}
+
+.bg-bm {
+    background-color: #aaaf17;
+}
+
+.bg-cp {
+    background-color: #c5875b;
+}
+
+.bg-c {
+    background-color: #cb7133;
+}
+
+.bg-cm {
+    background-color: #d35e0c;
+}
+
+.bg-d {
+    background-color: #c55b5b;
+}
+
+.bg-f {
+    background-color: #d70606;
+}

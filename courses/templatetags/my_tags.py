@@ -1,6 +1,7 @@
 from django import template
 from django.urls import reverse
 from courses.models import Course
+from django.utils.safestring import mark_safe
 
 import re
 
@@ -48,3 +49,33 @@ def course_link(value):
     output_string = output_string.replace(" or ", " <span class='text-danger'>or</span> ")
     output_string = output_string.replace(" and ", " <span class='text-success'>and</span> ")
     return output_string
+
+
+@register.simple_tag
+def letter_grade_badge(grade):
+    if grade == 'A+':
+        return mark_safe(f'<span class="badge bg-ap">{grade}</span>')
+    if grade == 'A':
+        return mark_safe(f'<span class="badge bg-a">{grade}</span>')
+    if grade == 'A-':
+        return mark_safe(f'<span class="badge bg-am">{grade}</span>')
+    if grade == 'B+':
+        return mark_safe(f'<span class="badge bg-bp">{grade}</span>')
+    if grade == 'B':
+        return mark_safe(f'<span class="badge bg-b">{grade}</span>')
+    if grade == 'B-':
+        return mark_safe(f'<span class="badge bg-bm">{grade}</span>')
+    if grade == 'C+':
+        return mark_safe(f'<span class="badge bg-cp">{grade}</span>')
+    if grade == 'C':
+        return mark_safe(f'<span class="badge bg-c">{grade}</span>')
+    if grade == 'C-':
+        return mark_safe(f'<span class="badge bg-cm">{grade}</span>')
+    if grade == 'D+':
+        return mark_safe(f'<span class="badge bg-d">{grade}</span>')
+    if grade == 'D':
+        return mark_safe(f'<span class="badge bg-d">{grade}</span>')
+    if grade == 'F':
+        return mark_safe(f'<span class="badge bg-f">{grade}</span>')
+    return mark_safe(f'<span class="badge bg-secondary">{grade}</span>')
+

@@ -20,12 +20,13 @@
         action="{% url 'courses:create-course-review' course_id %}">
     {% csrf_token %}
     {{ form.media }}
-    {{ form|crispy }}
-    <div class="control-group">
-      <div class="controls">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </div>
+{#    {{ form|crispy }}#}
+    {% crispy form %}
+{#    <div class="control-group">#}
+{#      <div class="controls">#}
+{#        <button type="submit" class="btn btn-primary">Create</button>#}
+{#      </div>#}
+{#    </div>#}
   </form>
   <script>
 (function($) {

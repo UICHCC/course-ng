@@ -11,7 +11,7 @@
             <a href="{% url 'courses:course-detail' course.id %}" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <div><strong>{{ course.course_code }}</strong> <span class="text-secondary">{{ course.course_name_en }}</span></div>
-      <small><span class="badge bg-secondary rounded-pill">{{ course.course_reviews.all|length }} review</span></small>
+      <small><span class="badge {% if course.course_reviews.all|length > 0 %}bg-success{% else %}bg-secondary{% endif %} rounded-pill">{{ course.course_reviews.all|length }} review</span></small>
     </div>
     <span class="text-secondary"><small>{{ course.course_name_cn }}</small></span>
   </a>

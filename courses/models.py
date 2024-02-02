@@ -7,8 +7,40 @@ from django.db.models import UniqueConstraint, Q
 
 from course_ng.users.models import User
 
+MAPPING = {
+    'A': 4.0,
+    'B': 3.0,
+    'C': 2.0,
+    'D': 1.0,
+    'F': 0.0,
+}
 
-# Create your models here.
+
+def digit_grade_to_letter(grade_sum):
+    if grade_sum > 3.9:
+        return 'A+'
+    elif grade_sum >= 3.75:
+        return 'A'
+    elif grade_sum >= 3.5:
+        return 'A-'
+    elif grade_sum >= 3.25:
+        return 'B+'
+    elif grade_sum >= 3.0:
+        return 'B'
+    elif grade_sum >= 2.75:
+        return 'B-'
+    elif grade_sum >= 2.5:
+        return 'C+'
+    elif grade_sum >= 2.0:
+        return 'C'
+    elif grade_sum >= 1.75:
+        return 'C-'
+    elif grade_sum >= 1.5:
+        return 'D+'
+    elif grade_sum >= 1.0:
+        return 'D'
+    else:
+        return 'F'
 
 
 class Course(models.Model):
@@ -36,6 +68,33 @@ class Course(models.Model):
 
     def __str__(self):
         return f"{self.course_code} {self.course_name_en}"
+
+    @property
+    def overall_grade(self):
+        reviews = self.course_reviews.all()
+        if not reviews:
+            return {'content': 'N/A', 'teaching': 'N/A', 'grading': 'N/A', 'workload': 'N/A'}
+
+        content_grade_sum = 0
+        teaching_grade_sum = 0
+        grading_grade_sum = 0
+        workload_grade_sum = 0
+
+        for review in reviews:
+            content_grade_sum += MAPPING[review.content_grade]
+            teaching_grade_sum += MAPPING[review.teaching_grade]
+            grading_grade_sum += MAPPING[review.grading_grade]
+            workload_grade_sum += MAPPING[review.workload_grade]
+
+        content_grade_sum /= len(reviews)
+        teaching_grade_sum /= len(reviews)
+        grading_grade_sum /= len(reviews)
+        workload_grade_sum /= len(reviews)
+
+        return {'content': digit_grade_to_letter(content_grade_sum),
+                'teaching': digit_grade_to_letter(teaching_grade_sum),
+                'grading': digit_grade_to_letter(grading_grade_sum),
+                'workload': digit_grade_to_letter(workload_grade_sum)}
 
 
 class CourseNote(models.Model):
@@ -87,6 +146,7 @@ SEMESTER = [
     ('19-20-1', '2019-2020 Fall'),
 ]
 
+
 class Review(models.Model):
     reviewer = models.ForeignKey(User, on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="course_reviews")
@@ -119,3 +179,21 @@ class Review(models.Model):
         constraints = [
             UniqueConstraint(fields=('reviewer', 'course'), name='one_review_per_course_for_an_user'),
         ]
+
+    @property
+    def overall_score_grade(self):
+        grade_sum = 0
+
+        grade_sum += MAPPING[self.content_grade]
+        grade_sum += MAPPING[self.teaching_grade]
+        grade_sum += MAPPING[self.grading_grade]
+        grade_sum += MAPPING[self.workload_grade]
+        grade_sum /= 4
+
+        return grade_sum
+
+    @property
+    def overall_grade(self):
+        return digit_grade_to_letter(self.overall_score_grade)
+
+

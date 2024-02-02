@@ -86,6 +86,7 @@ THIRD_PARTY_APPS = [
     "allauth.socialaccount",
     "django_filters",
     "ckeditor",
+    "invitations",
 ]
 
 LOCAL_APPS = [
@@ -277,9 +278,10 @@ ACCOUNT_USERNAME_REQUIRED = False
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_VERIFICATION = "none"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_ADAPTER = "course_ng.users.adapters.AccountAdapter"
+# ACCOUNT_ADAPTER = 'invitations.models.InvitationsAdapter'
 # https://django-allauth.readthedocs.io/en/latest/forms.html
 ACCOUNT_FORMS = {"signup": "course_ng.users.forms.UserSignupForm"}
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
