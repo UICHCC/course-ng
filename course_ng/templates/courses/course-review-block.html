@@ -12,22 +12,22 @@
           </svg> {{ lecturer.name }} {% endfor %}</p>
       </div>
       <div class="card">
-          <div class="card-body d-flex justify-content-evenly p-2 flex-wrap">
+          <div class="card-body d-flex justify-content-evenly p-2 mb-1 flex-wrap">
             <div class="d-flex flex-column justify-content-center align-items-center px-2">
-              <p class="card-title"><span class="text-primary fw-bold fw-small text-uppercase">content</span></p>
-              <h5>{% letter_grade_badge review.content_grade %}</h5>
+              <span class="text-primary fw-bold text-uppercase"><small>content</small></span>
+              <span class="fs-5">{% letter_grade_badge review.content_grade %}</span>
             </div>
             <div class="d-flex flex-column justify-content-center align-items-center px-2">
-              <p class="card-title"><span class="text-primary fw-bold text-uppercase">teaching</span></p>
-              <h5>{% letter_grade_badge review.teaching_grade %}</h5>
+              <span class="text-primary fw-bold text-uppercase"><small>teaching</small></span>
+              <span class="fs-5">{% letter_grade_badge review.teaching_grade %}</span>
             </div>
             <div class="d-flex flex-column justify-content-center align-items-center px-2">
-              <p class="card-title"><span class="text-primary fw-bold text-uppercase">grading</span></p>
-              <h5>{% letter_grade_badge review.grading_grade %}</h5>
+              <span class="text-primary fw-bold text-uppercase"><small>grading</small></span>
+              <span class="fs-5">{% letter_grade_badge review.grading_grade %}</span>
             </div>
             <div class="d-flex flex-column justify-content-center align-items-center px-2">
-              <p class="card-title"><span class="text-primary fw-bold text-uppercase">workload</span></p>
-              <h5>{% letter_grade_badge review.workload_grade %}</h5>
+              <span class="text-primary fw-bold text-uppercase"><small>workload</small></span>
+              <span class="fs-5">{% letter_grade_badge review.workload_grade %}</span>
             </div>
           </div>
         </div>

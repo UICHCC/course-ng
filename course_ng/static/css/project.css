@@ -18,11 +18,11 @@
 
 
 .bg-ap {
-    background-color: #2e810f;
+    background-color: #108f2f;
 }
 
 .bg-a {
-    background-color: #64b616;
+    background-color: #39b616;
 }
 
 .bg-am {
@@ -30,31 +30,35 @@
 }
 
 .bg-bp {
-    background-color: #b7bb4c;
+    background-color: #fff669;
 }
 
 .bg-b {
-    background-color: #bbc236;
+    background-color: #ded031;
 }
 
 .bg-bm {
-    background-color: #aaaf17;
+    background-color: #bba218;
 }
 
 .bg-cp {
-    background-color: #c5875b;
+    background-color: #ff9953;
 }
 
 .bg-c {
-    background-color: #cb7133;
+    background-color: #fa7314;
 }
 
 .bg-cm {
-    background-color: #d35e0c;
+    background-color: #b94d00;
+}
+
+.bg-dp {
+    background-color: #e8826a;
 }
 
 .bg-d {
-    background-color: #c55b5b;
+    background-color: #a64747;
 }
 
 .bg-f {

@@ -1,17 +1,17 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% load crispy_forms_tags %}
 
 {% block title %}
   {{ user.name }}
 {% endblock title %}
 {% block content %}
-  <h1>New Review</h1>
+  <h1>{% translate 'New Review' %}</h1>
   <h2>{{ review_course.course_code }} {{ review_course.course_name_en }}</h2>
   <p>
-    Prerequisites: {{ review_course.course_prerequisites }}, Type: {{ review_course.get_course_type_display }}, Unit(s): {{ review_course.course_units }}
+    {% translate 'Prerequisites' %}: {{ review_course.course_prerequisites }}, Type: {{ review_course.get_course_type_display }}, Unit(s): {{ review_course.course_units }}
   </p>
-  <p>Description: {{ review_course.course_description | safe }}</p>
+  <p>{% translate 'Course Description' %}: {{ review_course.course_description | safe }}</p>
   <hr />
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

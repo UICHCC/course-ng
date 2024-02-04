@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% load crispy_forms_tags %}
 
 {% block title %}
-  {{ user.name }}
+  {% translate 'New Course' %}
 {% endblock title %}
 {% block content %}
-  <h1>New Course</h1>
+  <h1>{% translate 'New Course' %}</h1>
   <form class="form-horizontal"
         method="post"
         action="{% url 'courses:course-add' %}">
@@ -15,7 +15,7 @@
     {{ form|crispy }}
     <div class="control-group">
       <div class="controls">
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary">{% translate 'Submit' %}</button>
       </div>
     </div>
   </form>

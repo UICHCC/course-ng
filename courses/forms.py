@@ -2,9 +2,10 @@ from ckeditor.widgets import CKEditorWidget
 from django import forms
 from dal import autocomplete
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Fieldset, Submit, Div, MultiField
+from crispy_forms.layout import Layout, Fieldset, Submit, Div, HTML
 from crispy_forms.bootstrap import InlineRadios
 from courses.models import Course, Review
+from django.utils.translation import gettext_lazy as _
 
 
 class CourseForm(forms.ModelForm):
@@ -12,11 +13,10 @@ class CourseForm(forms.ModelForm):
 
     class Meta:
         model = Course
-        exclude = ["update_time"]
+        exclude = ["is_visible", "update_time"]
 
 
 class ReviewForm(forms.ModelForm):
-
     def __init__(self, *args, **kwargs):
         super(ReviewForm, self).__init__(*args, **kwargs)
         self.fields['course'].disabled = True
@@ -24,7 +24,7 @@ class ReviewForm(forms.ModelForm):
         self.helper = FormHelper(self)
         self.helper.layout = Layout(
             Fieldset(
-                'Basic',
+                _('Basic'),
                 Div(
                     Div('course', css_class='col-md-6'),
                     Div('reviewer', css_class='col-md-6'),
@@ -35,7 +35,7 @@ class ReviewForm(forms.ModelForm):
                 'summary',
             ),
             Fieldset(
-                'Your Comments',
+                _('Your Comments'),
                 Div(
                     Div(
                         Div(
@@ -61,19 +61,22 @@ class ReviewForm(forms.ModelForm):
 
             ),
             Fieldset(
-                'Assessments/Materials',
-                'quiz',
-                'assignment',
-                'essay',
-                'project',
-                'attendance',
-                'reading_material',
-                'presentation',
-                'mid_term',
-                'final_exam',
-                css_class="d-flex flex-wrap justify-content-evenly"
+                _("Assessments/Materials"),
+                HTML(_("Please check all assessments and materials that includes in this course.")),
+                Div(
+                    'quiz',
+                    'assignment',
+                    'essay',
+                    'project',
+                    'attendance',
+                    'reading_material',
+                    'presentation',
+                    'mid_term',
+                    'final_exam',
+                    css_class="d-flex flex-wrap justify-content-evenly"
+                )
             ),
-            Submit('submit', 'Submit', css_class='btn btn-primary'),
+            Submit('submit', _('Submit'), css_class='btn btn-primary'),
         )
 
     class Meta:

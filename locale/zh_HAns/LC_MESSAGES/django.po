@@ -1,17 +1,22 @@
-# Translations for the Course NG project
-# Copyright (C) 2023 ECWU
-# ECWU <hi@ecwu.xyz>, 2023.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.0.0\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-04 16:54+0800\n"
-"Language: en-US\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: config/settings/base.py:32
 msgid "English"
@@ -24,74 +29,75 @@ msgstr ""
 #: course_ng/templates/account/account_inactive.html:6
 #: course_ng/templates/account/account_inactive.html:9
 msgid "Account Inactive"
-msgstr ""
+msgstr "账号未激活"
 
 #: course_ng/templates/account/account_inactive.html:10
 msgid "This account is inactive."
-msgstr ""
+msgstr "当前账号为未激活"
 
 #: course_ng/templates/account/email.html:7
 msgid "Account"
-msgstr ""
+msgstr "账号"
 
 #: course_ng/templates/account/email.html:10
 msgid "E-mail Addresses"
-msgstr ""
+msgstr "邮箱地址"
 
 #: course_ng/templates/account/email.html:12
 msgid "The following e-mail addresses are associated with your account:"
-msgstr ""
+msgstr "以下邮箱地址与你的账号关联："
 
 #: course_ng/templates/account/email.html:27
 msgid "Verified"
-msgstr ""
+msgstr "已验证"
 
 #: course_ng/templates/account/email.html:29
 msgid "Unverified"
-msgstr ""
+msgstr "未验证"
 
 #: course_ng/templates/account/email.html:32
 msgid "Primary"
-msgstr ""
+msgstr "首选"
 
 #: course_ng/templates/account/email.html:40
 msgid "Make Primary"
-msgstr ""
+msgstr "设为首选"
 
 #: course_ng/templates/account/email.html:43
 msgid "Re-send Verification"
-msgstr ""
+msgstr "重新发送验证邮件"
 
 #: course_ng/templates/account/email.html:46
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
 #: course_ng/templates/account/email.html:52
 msgid "Warning:"
-msgstr ""
+msgstr "警告："
 
 #: course_ng/templates/account/email.html:52
 msgid ""
 "You currently do not have any e-mail address set up. You should really add "
 "an e-mail address so you can receive notifications, reset your password, etc."
 msgstr ""
+"你目前没有设置邮箱。你应该添加一个邮箱以便进行通知接收、重设密码等操作。"
 
 #: course_ng/templates/account/email.html:55
 msgid "Add E-mail Address"
-msgstr ""
+msgstr "添加邮箱地址"
 
 #: course_ng/templates/account/email.html:59
 msgid "Add E-mail"
-msgstr ""
+msgstr "添加邮箱"
 
 #: course_ng/templates/account/email.html:66
 msgid "Do you really want to remove the selected e-mail address?"
-msgstr ""
+msgstr "你确定要移除选择的邮箱地址吗？"
 
 #: course_ng/templates/account/email_confirm.html:7
 #: course_ng/templates/account/email_confirm.html:10
 msgid "Confirm E-mail Address"
-msgstr ""
+msgstr "确认邮箱地址"
 
 #: course_ng/templates/account/email_confirm.html:14
 #, python-format
@@ -102,7 +108,7 @@ msgstr ""
 
 #: course_ng/templates/account/email_confirm.html:19
 msgid "Confirm"
-msgstr ""
+msgstr "确认"
 
 #: course_ng/templates/account/email_confirm.html:24
 #, python-format
@@ -110,12 +116,14 @@ msgid ""
 "This e-mail confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
+"这个邮箱确认链接已经失效，请<a \"href=\"%(email_url)s\">重新申请邮箱验证</"
+"a>。"
 
 #: course_ng/templates/account/login.html:8
 #: course_ng/templates/account/login.html:12
 #: course_ng/templates/account/login.html:51 course_ng/templates/base.html:85
 msgid "Sign In"
-msgstr ""
+msgstr "登录"
 
 #: course_ng/templates/account/login.html:16
 msgid "Please sign in with one of your existing third party accounts:"
@@ -141,17 +149,17 @@ msgstr ""
 
 #: course_ng/templates/account/login.html:50
 msgid "Forgot Password?"
-msgstr ""
+msgstr "忘记密码"
 
 #: course_ng/templates/account/logout.html:6
 #: course_ng/templates/account/logout.html:9
 #: course_ng/templates/account/logout.html:18 course_ng/templates/base.html:74
 msgid "Sign Out"
-msgstr ""
+msgstr "退出登录"
 
 #: course_ng/templates/account/logout.html:10
 msgid "Are you sure you want to sign out ?"
-msgstr ""
+msgstr "你确认你要退出登录吗？"
 
 #: course_ng/templates/account/password_change.html:7
 #: course_ng/templates/account/password_change.html:10
@@ -161,38 +169,38 @@ msgstr ""
 #: course_ng/templates/account/password_reset_from_key_done.html:6
 #: course_ng/templates/account/password_reset_from_key_done.html:9
 msgid "Change Password"
-msgstr ""
+msgstr "修改密码"
 
 #: course_ng/templates/account/password_reset.html:8
 #: course_ng/templates/account/password_reset.html:11
 #: course_ng/templates/account/password_reset_done.html:7
 #: course_ng/templates/account/password_reset_done.html:10
 msgid "Password Reset"
-msgstr ""
+msgstr "重置密码"
 
 #: course_ng/templates/account/password_reset.html:16
 msgid ""
 "Forgotten your password? Enter your e-mail address below, and we'll send you "
 "an e-mail allowing you to reset it."
-msgstr ""
+msgstr "忘记了你的密码？请输入你的注册邮箱，我们会发送一封邮件帮你重置密码。"
 
 #: course_ng/templates/account/password_reset.html:25
 msgid "Reset My Password"
-msgstr ""
+msgstr "重置我的密码"
 
 #: course_ng/templates/account/password_reset.html:27
 msgid "Please contact us if you have any trouble resetting your password."
-msgstr ""
+msgstr "如果你在重置密码的过程中遇到了问题，请与我们联系。"
 
 #: course_ng/templates/account/password_reset_done.html:15
 msgid ""
 "We have sent you an e-mail. Please contact us if you do not receive it "
 "within a few minutes."
-msgstr ""
+msgstr "我们已经给你发送了邮件，如果几分钟内没有收到，请与我们联系。"
 
 #: course_ng/templates/account/password_reset_from_key.html:12
 msgid "Bad Token"
-msgstr ""
+msgstr "口令有误"
 
 #: course_ng/templates/account/password_reset_from_key.html:20
 #, python-format
@@ -204,49 +212,49 @@ msgstr ""
 
 #: course_ng/templates/account/password_reset_from_key.html:30
 msgid "change password"
-msgstr ""
+msgstr "修改密码"
 
 #: course_ng/templates/account/password_reset_from_key.html:33
 #: course_ng/templates/account/password_reset_from_key_done.html:10
 msgid "Your password is now changed."
-msgstr ""
+msgstr "你的密码已经修改"
 
 #: course_ng/templates/account/password_set.html:7
 #: course_ng/templates/account/password_set.html:10
 #: course_ng/templates/account/password_set.html:19
 msgid "Set Password"
-msgstr ""
+msgstr "设置密码"
 
 #: course_ng/templates/account/signup.html:7
 msgid "Signup"
-msgstr ""
+msgstr "注册"
 
 #: course_ng/templates/account/signup.html:10
 #: course_ng/templates/account/signup.html:25 course_ng/templates/base.html:80
 msgid "Sign Up"
-msgstr ""
+msgstr "注册"
 
 #: course_ng/templates/account/signup.html:12
 #, python-format
 msgid ""
 "Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
-msgstr ""
+msgstr "已经有账号了吗？<a href=\"%(login_url)s\">立刻登录</a>。"
 
 #: course_ng/templates/account/signup_closed.html:6
 #: course_ng/templates/account/signup_closed.html:9
 msgid "Sign Up Closed"
-msgstr ""
+msgstr "注册关闭"
 
 #: course_ng/templates/account/signup_closed.html:10
 msgid "We are sorry, but the sign up is currently closed."
-msgstr ""
+msgstr "很抱歉，但目前不允许注册。"
 
 #: course_ng/templates/account/verification_sent.html:6
 #: course_ng/templates/account/verification_sent.html:9
 #: course_ng/templates/account/verified_email_required.html:6
 #: course_ng/templates/account/verified_email_required.html:9
 msgid "Verify Your E-mail Address"
-msgstr ""
+msgstr "验证你的邮箱地址"
 
 #: course_ng/templates/account/verification_sent.html:11
 msgid ""
@@ -278,309 +286,308 @@ msgstr ""
 
 #: course_ng/templates/base.html:63
 msgid "Home"
-msgstr ""
+msgstr "主页"
 
 #: course_ng/templates/base.html:66
 #: course_ng/templates/pages/courses_list.html:75
 msgid "Course"
-msgstr ""
+msgstr "课程"
 
 #: course_ng/templates/base.html:70
 msgid "My Profile"
-msgstr ""
+msgstr "个人资料"
 
 #: course_ng/templates/courses/course_confirm_delete.html:6
 msgid "Delete Course"
-msgstr ""
+msgstr "删除课程"
 
 #: course_ng/templates/courses/course_confirm_delete.html:10
-#, python-format
 msgid "Are you sure you want to delete \"%(object)s\"?"
-msgstr ""
+msgstr "你确认你要删除课程\"%(object)s\"吗？"
 
 #: course_ng/templates/courses/course_confirm_delete.html:13
 msgid "Delete"
-msgstr ""
+msgstr "删除"
 
 #: course_ng/templates/courses/course_confirm_delete.html:18
 msgid "Course Detail"
-msgstr ""
+msgstr "课程细节"
 
 #: course_ng/templates/courses/course_confirm_delete.html:21
 #: course_ng/templates/courses/course_detail.html:142
 #: course_ng/templates/courses/course_review_edit_form.html:12
 #: course_ng/templates/courses/course_review_form.html:12
 msgid "Prerequisites"
-msgstr ""
+msgstr "前置要求"
 
 #: course_ng/templates/courses/course_confirm_delete.html:24
 #: course_ng/templates/courses/course_review_edit_form.html:14
 #: course_ng/templates/courses/course_review_form.html:14 courses/models.py:65
 msgid "Course Description"
-msgstr ""
+msgstr "课程描述"
 
 #: course_ng/templates/courses/course_detail.html:111
 msgid "Update time"
-msgstr ""
+msgstr "更新时间"
 
 #: course_ng/templates/courses/course_detail.html:158
 msgid "Exclusions"
-msgstr ""
+msgstr "排除情况"
 
 #: course_ng/templates/courses/course_detail.html:173
 msgid "Offered In"
-msgstr ""
+msgstr "授课历史"
 
 #: course_ng/templates/courses/course_detail.html:179
 msgid "No records in the system."
-msgstr ""
+msgstr "系统中无记录。"
 
 #: course_ng/templates/courses/course_detail.html:194
 msgid "Note"
-msgstr ""
+msgstr "笔记"
 
 #: course_ng/templates/courses/course_edit_form.html:6
 #: course_ng/templates/courses/course_edit_form.html:9
 msgid "Edit Course"
-msgstr ""
+msgstr "编辑课程"
 
 #: course_ng/templates/courses/course_edit_form.html:18
 #: course_ng/templates/courses/course_form.html:18 courses/forms.py:79
 msgid "Submit"
-msgstr ""
+msgstr "提交"
 
 #: course_ng/templates/courses/course_form.html:6
 #: course_ng/templates/courses/course_form.html:9
 msgid "New Course"
-msgstr ""
+msgstr "创建课程"
 
 #: course_ng/templates/courses/course_review_edit_form.html:9
 msgid "Update Review"
-msgstr ""
+msgstr "更新评价"
 
 #: course_ng/templates/courses/course_review_form.html:9
 msgid "New Review"
-msgstr ""
+msgstr "新评论"
 
 #: course_ng/templates/pages/courses_list.html:9
 msgid "Courses"
-msgstr ""
+msgstr "课程"
 
 #: course_ng/templates/pages/courses_list.html:15
 msgid "review(s)"
-msgstr ""
+msgstr " 条评论"
 
 #: course_ng/templates/pages/courses_list.html:80
 msgid "Filter"
-msgstr ""
+msgstr "筛选"
 
 #: course_ng/templates/pages/courses_list.html:86
 msgid "Clear filters"
-msgstr ""
+msgstr "清除筛选"
 
 #: course_ng/users/admin.py:23
 msgid "Personal info"
-msgstr ""
+msgstr "个人资料"
 
 #: course_ng/users/admin.py:25
 msgid "Permissions"
-msgstr ""
+msgstr "权限"
 
 #: course_ng/users/admin.py:36
 msgid "Important dates"
-msgstr ""
+msgstr "重要日期"
 
 #: course_ng/users/apps.py:7
 msgid "Users"
-msgstr ""
+msgstr "用户"
 
 #: course_ng/users/forms.py:28 course_ng/users/tests/test_forms.py:36
 msgid "This email has already been taken."
-msgstr ""
+msgstr "这个邮箱已被使用。"
 
 #: course_ng/users/models.py:17
 msgid "Name of User"
-msgstr ""
+msgstr "昵称"
 
 #: course_ng/users/models.py:19
 msgid "Study Department"
-msgstr ""
+msgstr "所在学部/学院"
 
 #: course_ng/users/models.py:20
 msgid "Study Major"
-msgstr ""
+msgstr "所学专业"
 
 #: course_ng/users/models.py:23
 msgid "email address"
-msgstr ""
+msgstr "邮箱地址"
 
 #: course_ng/users/tests/test_views.py:67 course_ng/users/views.py:23
 msgid "Information successfully updated"
-msgstr ""
+msgstr "信息成功更新"
 
 #: courses/forms.py:27
 msgid "Basic"
-msgstr ""
+msgstr "基础信息"
 
 #: courses/forms.py:38
 msgid "Your Comments"
-msgstr ""
+msgstr "你的评价"
 
 #: courses/forms.py:64
 msgid "Assessments/Materials"
-msgstr ""
+msgstr "评分项/材料"
 
 #: courses/forms.py:65
 msgid ""
 "Please check all assessments and materials that includes in this course."
-msgstr ""
+msgstr "请勾选这门课涉及的所有评分项和材料。"
 
 #: courses/models.py:49
 msgid "No Record"
-msgstr ""
+msgstr "无记录"
 
 #: courses/models.py:50
 msgid "Major Required"
-msgstr ""
+msgstr "专业必修课"
 
 #: courses/models.py:51
 msgid "Major Elective"
-msgstr ""
+msgstr "专业选修课"
 
 #: courses/models.py:52
 msgid "General Education"
-msgstr ""
+msgstr "通识教育课程"
 
 #: courses/models.py:53
 msgid "University Core"
-msgstr ""
+msgstr "大学核心课"
 
 #: courses/models.py:54
 msgid "Free Elective"
-msgstr ""
+msgstr "自由选修课"
 
 #: courses/models.py:55
 msgid "BBA (Hons) Core"
-msgstr ""
+msgstr "工商管理学士学位核心课程"
 
 #: courses/models.py:56
 msgid "Concentration Required"
-msgstr ""
+msgstr "专攻必修"
 
 #: courses/models.py:58
 msgid "Course Code"
-msgstr ""
+msgstr "课程代码"
 
 #: courses/models.py:59
 msgid "Course English Name"
-msgstr ""
+msgstr "课程英文名称"
 
 #: courses/models.py:60
 msgid "Course Chinese Name"
-msgstr ""
+msgstr "课程中文名称"
 
 #: courses/models.py:61
 msgid "Course Credit"
-msgstr ""
+msgstr "课程学分"
 
 #: courses/models.py:62
 msgid "Course Prerequisites"
-msgstr ""
+msgstr "课程前置要求"
 
 #: courses/models.py:63
 msgid "Course Exclusions"
-msgstr ""
+msgstr "课程排除情况"
 
 #: courses/models.py:64
 msgid "Course Type"
-msgstr ""
+msgstr "课程类型"
 
 #: courses/models.py:66
 msgid "Visibility of the course"
-msgstr ""
+msgstr "课程是否可见"
 
 #: courses/models.py:67
 msgid "Course information update time"
-msgstr ""
+msgstr "课程信息更新时间"
 
 #: courses/models.py:102
 msgid "Course Note"
-msgstr ""
+msgstr "课程笔记"
 
 #: courses/models.py:151
 msgid "Reviewer"
-msgstr ""
+msgstr "评论者"
 
 #: courses/models.py:152
 msgid ""
 "Comments will only display the UID or nickname set by the user, and other "
 "information (such as email) will not be displayed in the front desk."
-msgstr ""
+msgstr "评论只会展示UID或用户设定的昵称，其他信息（如邮箱）不会在前台展示"
 
 #: courses/models.py:154
 msgid "Review Course"
-msgstr ""
+msgstr "评价课程"
 
 #: courses/models.py:155
 msgid "Semester"
-msgstr ""
+msgstr "授课学期"
 
 #: courses/models.py:156
 msgid "Short Review Summary"
-msgstr ""
+msgstr "课程短评"
 
 #: courses/models.py:157
 msgid "Lecturer"
-msgstr ""
+msgstr "授课老师"
 
 #: courses/models.py:158
 msgid "Content Comment"
-msgstr ""
+msgstr "课程内容评价"
 
 #: courses/models.py:160
 msgid "Teaching Comment"
-msgstr ""
+msgstr "课程教学评价"
 
 #: courses/models.py:162
 msgid "Grading Comment"
-msgstr ""
+msgstr "课程给分评价"
 
 #: courses/models.py:164
 msgid "Workload Comment"
-msgstr ""
+msgstr "课程负荷评价"
 
 #: courses/models.py:166
 msgid "Has Mid-term"
-msgstr ""
+msgstr "有期中考"
 
 #: courses/models.py:167
 msgid "Has Final Exam"
-msgstr ""
+msgstr "有期末考"
 
 #: courses/models.py:168
 msgid "Has Quiz"
-msgstr ""
+msgstr "有小测"
 
 #: courses/models.py:169
 msgid "Has Assignment"
-msgstr ""
+msgstr "有作业"
 
 #: courses/models.py:170
 msgid "Has Essay"
-msgstr ""
+msgstr "有论文"
 
 #: courses/models.py:171
 msgid "Has Project"
-msgstr ""
+msgstr "有项目"
 
 #: courses/models.py:172
 msgid "Has Attendance"
-msgstr ""
+msgstr "有签到"
 
 #: courses/models.py:173
 msgid "Has Reading Material"
-msgstr ""
+msgstr "有阅读材料"
 
 #: courses/models.py:174
 msgid "Has Presentation"
-msgstr ""
+msgstr "有演示"

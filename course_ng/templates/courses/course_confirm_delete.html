@@ -1,25 +1,26 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% load crispy_forms_tags %}
 
 {% block title %}
-  {{ course.course_code }} {{ course.course_name_en }}
+  {% translate 'Delete Course' %}{{ course.course_code }} {{ course.course_name_en }}
 {% endblock title %}
 {% block content %}
   <form method="post">{% csrf_token %}
-<h1>Are you sure you want to delete "{{ object }}"?</h1>
+<h1>{% blocktrans %}Are you sure you want to delete "{{ object }}"?{% endblocktrans %}</h1>
   <div class="control-group">
       <div class="controls">
-        <button type="submit" class="btn btn-danger">Delete!</button>
+        <button type="submit" class="btn btn-danger">{% translate 'Delete' %}</button>
       </div>
     </div>
 </form>
   <hr>
-<h3>Course Details:</h3>
+<h3>{% translate 'Course Detail' %}</h3>
   <h4>{{ course.course_name_cn }}</h4>
   <p>
-    Prerequisites: {{ course.course_prerequisites }}, Type: {{ course.course_type }}, Unit(s): {{ course.course_units }}
+    {% translate 'Prerequisites' %}: {{ course.course_prerequisites }}, Type: {{ course.course_type }}, Unit(s): {{ course.course_units }}
   </p>
-  <hr />
+  <hr/>
+  {% translate 'Course Description' %}
   {{ course.course_description | safe }}
 {% endblock content %}

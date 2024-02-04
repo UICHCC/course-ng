@@ -1,17 +1,18 @@
 {% extends "base.html" %}
 {% load my_tags %}
 {% load crispy_forms_tags %}
+{% load i18n %}
 
 {% block content %}
   <div class="row my-5">
     <div class="col-md-9">
-      <h2>Courses</h2>
+      <h2>{% translate "Courses" %}</h2>
 <div class="list-group">
           {% for course in object_list %}
             <a href="{% url 'courses:course-detail' course.id %}" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <div><strong>{{ course.course_code }}</strong> <span class="text-secondary">{{ course.course_name_en }}</span></div>
-      <small><span class="badge {% if course.course_reviews.all|length > 0 %}bg-success{% else %}bg-secondary{% endif %} rounded-pill">{{ course.course_reviews.all|length }} review</span></small>
+      <small><span class="badge {% if course.course_reviews.all|length > 0 %}bg-success{% else %}bg-secondary{% endif %} rounded-pill">{{ course.course_reviews.all|length }} {% translate "review(s)" %}</span></small>
     </div>
     <span class="text-secondary"><small>{{ course.course_name_cn }}</small></span>
   </a>
@@ -71,18 +72,18 @@
           </ul>
         </nav>
         </div>
-        <p>Course {{ page_obj.start_index }}&mdash;{{ page_obj.end_index }}</p>
+        <p>{% translate "Course" %} {{ page_obj.start_index }}&mdash;{{ page_obj.end_index }}</p>
       {% endif %}
 
     </div>
     <div class="col-md-3">
-      <h2>Filter</h2>
+      <h2>{% translate "Filter" %}</h2>
       <form class="form-horizontal" action="" method="get">
         {{ filter.form|crispy }}
         <div class="control-group">
           <div class="controls">
             <input type="submit" class="btn btn-primary"/>
-            <a class="btn btn-outline-secondary" href="{%  url 'courses:courses' %}">Clear filters</a>
+            <a class="btn btn-outline-secondary" href="{%  url 'courses:courses' %}">{% translate "Clear filters" %}</a>
           </div>
         </div>
       </form>

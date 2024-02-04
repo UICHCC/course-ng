@@ -54,28 +54,28 @@ def course_link(value):
 @register.simple_tag
 def letter_grade_badge(grade):
     if grade == 'A+':
-        return mark_safe(f'<span class="badge bg-ap">{grade}</span>')
+        return mark_safe(f'<span class="badge px-3 bg-ap">{grade}</span>')
     if grade == 'A':
-        return mark_safe(f'<span class="badge bg-a">{grade}</span>')
+        return mark_safe(f'<span class="badge px-3 bg-a">{grade}</span>')
     if grade == 'A-':
-        return mark_safe(f'<span class="badge bg-am">{grade}</span>')
+        return mark_safe(f'<span class="badge px-3 bg-am">{grade}</span>')
     if grade == 'B+':
-        return mark_safe(f'<span class="badge bg-bp">{grade}</span>')
+        return mark_safe(f'<span class="badge px-3 bg-bp">{grade}</span>')
     if grade == 'B':
-        return mark_safe(f'<span class="badge bg-b">{grade}</span>')
+        return mark_safe(f'<span class="badge px-3 bg-b">{grade}</span>')
     if grade == 'B-':
-        return mark_safe(f'<span class="badge bg-bm">{grade}</span>')
+        return mark_safe(f'<span class="badge px-3 bg-bm">{grade}</span>')
     if grade == 'C+':
-        return mark_safe(f'<span class="badge bg-cp">{grade}</span>')
+        return mark_safe(f'<span class="badge px-3 bg-cp">{grade}</span>')
     if grade == 'C':
-        return mark_safe(f'<span class="badge bg-c">{grade}</span>')
+        return mark_safe(f'<span class="badge px-3 bg-c">{grade}</span>')
     if grade == 'C-':
-        return mark_safe(f'<span class="badge bg-cm">{grade}</span>')
+        return mark_safe(f'<span class="badge px-3 bg-cm">{grade}</span>')
     if grade == 'D+':
-        return mark_safe(f'<span class="badge bg-d">{grade}</span>')
+        return mark_safe(f'<span class="badge px-3 bg-dp">{grade}</span>')
     if grade == 'D':
-        return mark_safe(f'<span class="badge bg-d">{grade}</span>')
+        return mark_safe(f'<span class="badge px-3 bg-d">{grade}</span>')
     if grade == 'F':
-        return mark_safe(f'<span class="badge bg-f">{grade}</span>')
-    return mark_safe(f'<span class="badge bg-secondary">{grade}</span>')
+        return mark_safe(f'<span class="badge px-3 bg-f">{grade}</span>')
+    return mark_safe(f'<span class="badge px-3 bg-secondary">{grade}</span>')
 

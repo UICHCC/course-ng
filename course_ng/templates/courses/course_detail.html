@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% load crispy_forms_tags %}
 {% load my_tags %}
 
@@ -108,7 +108,7 @@
           <span class="badge bg-primary">{{ course.course_units }} units</span>
         </h2>
         <span>
-        <span>Update: {{ course.update_time }}</span></span>
+        <span>{% translate "Update time" %}: {{ course.update_time }}</span></span>
       </div>
     </div>
     <!-- Course Metadata -->
@@ -139,7 +139,7 @@
                 <path fill-rule="evenodd"
                       d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3.854 2.146a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 3.293l1.146-1.147a.5.5 0 0 1 .708 0m0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 7.293l1.146-1.147a.5.5 0 0 1 .708 0m0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0"/>
               </svg>
-              Prerequisites</strong>
+              {% translate "Prerequisites" %}</strong>
             {% autoescape off %}{% course_link course.course_prerequisites %}{% endautoescape %}
           </p>
         {% endif %}
@@ -155,7 +155,7 @@
                 <path
                   d="M15 8a6.97 6.97 0 0 0-1.71-4.584l-9.874 9.875A7 7 0 0 0 15 8M2.71 12.584l9.874-9.875a7 7 0 0 0-9.874 9.874ZM16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0"/>
               </svg>
-              Exclusions</strong> {{ course.course_exclusions }}
+              {% translate "Exclusions" %}</strong> {{ course.course_exclusions }}
           </p>
         {% endif %}
         <p class="course_attribute">
@@ -170,13 +170,13 @@
                 d="M6 6.207v9.043a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H6.236a1 1 0 0 1-.447-.106l-.33-.165A.83.83 0 0 1 5 2.488V.75a.75.75 0 0 0-1.5 0v2.083c0 .715.404 1.37 1.044 1.689L5.5 5c.32.32.5.754.5 1.207"/>
               <path d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
             </svg>
-            Offered In</strong>
+            {% translate "Offered In" %}</strong>
           {% if course.course_reviews.all %}
             {% for review in course.course_reviews.all|dictsort:'semester' %}
             {% ifchanged %}{{review.get_semester_display}} {% endifchanged %}
             {% endfor %}
           {% else %}
-            No records in the system.
+            {% translate "No records in the system." %}
           {% endif %}
         </p>
         {% for note in course.notes.all %}
@@ -191,7 +191,7 @@
                 <path
                   d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/>
               </svg>
-              Note {{ forloop.counter }}</strong> {{ note.note }}
+              {% translate "Note" %} {{ forloop.counter }}</strong> {{ note.note }}
           </p>
         {% endfor %}
       </div>
