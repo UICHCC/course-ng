@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-04 16:54+0800\n"
+"POT-Creation-Date: 2024-02-04 23:27+0800\n"
 "Language: en-US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -113,7 +113,7 @@ msgstr ""
 
 #: course_ng/templates/account/login.html:8
 #: course_ng/templates/account/login.html:12
-#: course_ng/templates/account/login.html:51 course_ng/templates/base.html:85
+#: course_ng/templates/account/login.html:51 course_ng/templates/base.html:86
 msgid "Sign In"
 msgstr ""
 
@@ -145,7 +145,7 @@ msgstr ""
 
 #: course_ng/templates/account/logout.html:6
 #: course_ng/templates/account/logout.html:9
-#: course_ng/templates/account/logout.html:18 course_ng/templates/base.html:74
+#: course_ng/templates/account/logout.html:18 course_ng/templates/base.html:75
 msgid "Sign Out"
 msgstr ""
 
@@ -222,7 +222,7 @@ msgid "Signup"
 msgstr ""
 
 #: course_ng/templates/account/signup.html:10
-#: course_ng/templates/account/signup.html:25 course_ng/templates/base.html:80
+#: course_ng/templates/account/signup.html:25 course_ng/templates/base.html:81
 msgid "Sign Up"
 msgstr ""
 
@@ -280,13 +280,42 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: course_ng/templates/base.html:66
+#: course_ng/templates/base.html:67
 #: course_ng/templates/pages/courses_list.html:75
+#: course_ng/templates/users/user_detail.html:39
 msgid "Course"
 msgstr ""
 
-#: course_ng/templates/base.html:70
+#: course_ng/templates/base.html:71
 msgid "My Profile"
+msgstr ""
+
+#: course_ng/templates/base.html:131
+msgid "Switch Language"
+msgstr ""
+
+#: course_ng/templates/courses/course-review-block.html:8 courses/models.py:158
+msgid "Semester"
+msgstr ""
+
+#: course_ng/templates/courses/course-review-block.html:9 courses/models.py:160
+msgid "Lecturer"
+msgstr ""
+
+#: course_ng/templates/courses/course-review-block.html:18
+msgid "content"
+msgstr ""
+
+#: course_ng/templates/courses/course-review-block.html:22
+msgid "teaching"
+msgstr ""
+
+#: course_ng/templates/courses/course-review-block.html:26
+msgid "grading"
+msgstr ""
+
+#: course_ng/templates/courses/course-review-block.html:30
+msgid "workload"
 msgstr ""
 
 #: course_ng/templates/courses/course_confirm_delete.html:6
@@ -314,9 +343,14 @@ msgid "Prerequisites"
 msgstr ""
 
 #: course_ng/templates/courses/course_confirm_delete.html:24
+#: course_ng/templates/courses/course_detail.html:240
 #: course_ng/templates/courses/course_review_edit_form.html:14
 #: course_ng/templates/courses/course_review_form.html:14 courses/models.py:65
 msgid "Course Description"
+msgstr ""
+
+#: course_ng/templates/courses/course_detail.html:108
+msgid "units"
 msgstr ""
 
 #: course_ng/templates/courses/course_detail.html:111
@@ -337,6 +371,23 @@ msgstr ""
 
 #: course_ng/templates/courses/course_detail.html:194
 msgid "Note"
+msgstr ""
+
+#: course_ng/templates/courses/course_detail.html:200
+#: course_ng/templates/pages/courses_list.html:15
+msgid "review(s)"
+msgstr ""
+
+#: course_ng/templates/courses/course_detail.html:253
+msgid "Expend / Collapse"
+msgstr ""
+
+#: course_ng/templates/courses/course_detail.html:259
+msgid "Reviews"
+msgstr ""
+
+#: course_ng/templates/courses/course_detail.html:268
+msgid "No Review"
 msgstr ""
 
 #: course_ng/templates/courses/course_edit_form.html:6
@@ -366,8 +417,8 @@ msgstr ""
 msgid "Courses"
 msgstr ""
 
-#: course_ng/templates/pages/courses_list.html:15
-msgid "review(s)"
+#: course_ng/templates/pages/courses_list.html:75
+msgid "Total"
 msgstr ""
 
 #: course_ng/templates/pages/courses_list.html:80
@@ -376,6 +427,54 @@ msgstr ""
 
 #: course_ng/templates/pages/courses_list.html:86
 msgid "Clear filters"
+msgstr ""
+
+#: course_ng/templates/users/user_detail.html:13
+msgid "(Name of user is not setup)"
+msgstr ""
+
+#: course_ng/templates/users/user_detail.html:15
+msgid "Department"
+msgstr ""
+
+#: course_ng/templates/users/user_detail.html:16
+msgid "Major"
+msgstr ""
+
+#: course_ng/templates/users/user_detail.html:24
+msgid "Update Info"
+msgstr ""
+
+#: course_ng/templates/users/user_detail.html:27
+msgid "E-Mail"
+msgstr ""
+
+#: course_ng/templates/users/user_detail.html:34
+msgid "Review History"
+msgstr ""
+
+#: course_ng/templates/users/user_detail.html:38
+msgid "Overall Grade"
+msgstr ""
+
+#: course_ng/templates/users/user_detail.html:40
+msgid "Review Time"
+msgstr ""
+
+#: course_ng/templates/users/user_detail.html:41
+msgid "Tool"
+msgstr ""
+
+#: course_ng/templates/users/user_detail.html:50
+msgid "Course Page"
+msgstr ""
+
+#: course_ng/templates/users/user_detail.html:51
+msgid "Edit Review"
+msgstr ""
+
+#: course_ng/users/adapters.py:23
+msgid "Please use your UIC email. Others are restricted from registering."
 msgstr ""
 
 #: course_ng/users/admin.py:23
@@ -400,6 +499,11 @@ msgstr ""
 
 #: course_ng/users/models.py:17
 msgid "Name of User"
+msgstr ""
+
+#: course_ng/users/models.py:18
+msgid ""
+"input your preferred display name, this name will show under your reviews."
 msgstr ""
 
 #: course_ng/users/models.py:19
@@ -433,6 +537,24 @@ msgstr ""
 #: courses/forms.py:65
 msgid ""
 "Please check all assessments and materials that includes in this course."
+msgstr ""
+
+#: courses/forms.py:93
+msgid "You can list the content / outline of this course."
+msgstr ""
+
+#: courses/forms.py:95
+msgid "You can description the teaching style of the lecturer."
+msgstr ""
+
+#: courses/forms.py:97
+msgid ""
+"You can list the assessment and the score distribution here, your final "
+"letter grading is also welcome."
+msgstr ""
+
+#: courses/forms.py:100
+msgid "You can description how many hours you need to spent on this course."
 msgstr ""
 
 #: courses/models.py:49
@@ -511,76 +633,76 @@ msgstr ""
 msgid "Reviewer"
 msgstr ""
 
-#: courses/models.py:152
+#: courses/models.py:153
 msgid ""
 "Comments will only display the UID or nickname set by the user, and other "
-"information (such as email) will not be displayed in the front desk."
-msgstr ""
-
-#: courses/models.py:154
-msgid "Review Course"
-msgstr ""
-
-#: courses/models.py:155
-msgid "Semester"
-msgstr ""
-
-#: courses/models.py:156
-msgid "Short Review Summary"
+"information (such as email) will not be displayed in the webpage."
 msgstr ""
 
 #: courses/models.py:157
-msgid "Lecturer"
+msgid "Review Course"
 msgstr ""
 
-#: courses/models.py:158
+#: courses/models.py:159
+msgid "Short Review Summary"
+msgstr ""
+
+#: courses/models.py:161
 msgid "Content Comment"
 msgstr ""
 
-#: courses/models.py:160
+#: courses/models.py:163
 msgid "Teaching Comment"
 msgstr ""
 
-#: courses/models.py:162
+#: courses/models.py:165
 msgid "Grading Comment"
 msgstr ""
 
-#: courses/models.py:164
+#: courses/models.py:167
 msgid "Workload Comment"
 msgstr ""
 
-#: courses/models.py:166
+#: courses/models.py:169
 msgid "Has Mid-term"
 msgstr ""
 
-#: courses/models.py:167
+#: courses/models.py:170
 msgid "Has Final Exam"
 msgstr ""
 
-#: courses/models.py:168
+#: courses/models.py:171
 msgid "Has Quiz"
 msgstr ""
 
-#: courses/models.py:169
+#: courses/models.py:172
 msgid "Has Assignment"
 msgstr ""
 
-#: courses/models.py:170
+#: courses/models.py:173
 msgid "Has Essay"
 msgstr ""
 
-#: courses/models.py:171
+#: courses/models.py:174
 msgid "Has Project"
 msgstr ""
 
-#: courses/models.py:172
+#: courses/models.py:175
 msgid "Has Attendance"
 msgstr ""
 
-#: courses/models.py:173
+#: courses/models.py:176
 msgid "Has Reading Material"
 msgstr ""
 
-#: courses/models.py:174
+#: courses/models.py:177
 msgid "Has Presentation"
+msgstr ""
+
+#: courses/views.py:120
+msgid "Review is allow to update within 7 days after you initial submit."
+msgstr ""
+
+#: courses/views.py:124
+msgid "Review is not allow to update after 7 days since your initial submit."
 msgstr ""

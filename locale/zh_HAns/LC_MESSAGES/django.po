@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-04 16:54+0800\n"
+"POT-Creation-Date: 2024-02-04 23:27+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -121,7 +121,7 @@ msgstr ""
 
 #: course_ng/templates/account/login.html:8
 #: course_ng/templates/account/login.html:12
-#: course_ng/templates/account/login.html:51 course_ng/templates/base.html:85
+#: course_ng/templates/account/login.html:51 course_ng/templates/base.html:86
 msgid "Sign In"
 msgstr "登录"
 
@@ -153,7 +153,7 @@ msgstr "忘记密码"
 
 #: course_ng/templates/account/logout.html:6
 #: course_ng/templates/account/logout.html:9
-#: course_ng/templates/account/logout.html:18 course_ng/templates/base.html:74
+#: course_ng/templates/account/logout.html:18 course_ng/templates/base.html:75
 msgid "Sign Out"
 msgstr "退出登录"
 
@@ -230,7 +230,7 @@ msgid "Signup"
 msgstr "注册"
 
 #: course_ng/templates/account/signup.html:10
-#: course_ng/templates/account/signup.html:25 course_ng/templates/base.html:80
+#: course_ng/templates/account/signup.html:25 course_ng/templates/base.html:81
 msgid "Sign Up"
 msgstr "注册"
 
@@ -288,20 +288,50 @@ msgstr ""
 msgid "Home"
 msgstr "主页"
 
-#: course_ng/templates/base.html:66
+#: course_ng/templates/base.html:67
 #: course_ng/templates/pages/courses_list.html:75
+#: course_ng/templates/users/user_detail.html:39
 msgid "Course"
 msgstr "课程"
 
-#: course_ng/templates/base.html:70
+#: course_ng/templates/base.html:71
 msgid "My Profile"
 msgstr "个人资料"
+
+#: course_ng/templates/base.html:131
+msgid "Switch Language"
+msgstr "切换语言"
+
+#: course_ng/templates/courses/course-review-block.html:8 courses/models.py:158
+msgid "Semester"
+msgstr "授课学期"
+
+#: course_ng/templates/courses/course-review-block.html:9 courses/models.py:160
+msgid "Lecturer"
+msgstr "授课老师"
+
+#: course_ng/templates/courses/course-review-block.html:18
+msgid "content"
+msgstr "内容"
+
+#: course_ng/templates/courses/course-review-block.html:22
+msgid "teaching"
+msgstr "教学"
+
+#: course_ng/templates/courses/course-review-block.html:26
+msgid "grading"
+msgstr "评分"
+
+#: course_ng/templates/courses/course-review-block.html:30
+msgid "workload"
+msgstr "负荷"
 
 #: course_ng/templates/courses/course_confirm_delete.html:6
 msgid "Delete Course"
 msgstr "删除课程"
 
 #: course_ng/templates/courses/course_confirm_delete.html:10
+#, python-format
 msgid "Are you sure you want to delete \"%(object)s\"?"
 msgstr "你确认你要删除课程\"%(object)s\"吗？"
 
@@ -321,10 +351,15 @@ msgid "Prerequisites"
 msgstr "前置要求"
 
 #: course_ng/templates/courses/course_confirm_delete.html:24
+#: course_ng/templates/courses/course_detail.html:240
 #: course_ng/templates/courses/course_review_edit_form.html:14
 #: course_ng/templates/courses/course_review_form.html:14 courses/models.py:65
 msgid "Course Description"
 msgstr "课程描述"
+
+#: course_ng/templates/courses/course_detail.html:108
+msgid "units"
+msgstr "学分"
 
 #: course_ng/templates/courses/course_detail.html:111
 msgid "Update time"
@@ -345,6 +380,23 @@ msgstr "系统中无记录。"
 #: course_ng/templates/courses/course_detail.html:194
 msgid "Note"
 msgstr "笔记"
+
+#: course_ng/templates/courses/course_detail.html:200
+#: course_ng/templates/pages/courses_list.html:15
+msgid "review(s)"
+msgstr " 条评价"
+
+#: course_ng/templates/courses/course_detail.html:253
+msgid "Expend / Collapse"
+msgstr "展开 / 收起"
+
+#: course_ng/templates/courses/course_detail.html:259
+msgid "Reviews"
+msgstr "评价"
+
+#: course_ng/templates/courses/course_detail.html:268
+msgid "No Review"
+msgstr "无评价"
 
 #: course_ng/templates/courses/course_edit_form.html:6
 #: course_ng/templates/courses/course_edit_form.html:9
@@ -367,15 +419,15 @@ msgstr "更新评价"
 
 #: course_ng/templates/courses/course_review_form.html:9
 msgid "New Review"
-msgstr "新评论"
+msgstr "新评价"
 
 #: course_ng/templates/pages/courses_list.html:9
 msgid "Courses"
 msgstr "课程"
 
-#: course_ng/templates/pages/courses_list.html:15
-msgid "review(s)"
-msgstr " 条评论"
+#: course_ng/templates/pages/courses_list.html:75
+msgid "Total"
+msgstr "共"
 
 #: course_ng/templates/pages/courses_list.html:80
 msgid "Filter"
@@ -384,6 +436,54 @@ msgstr "筛选"
 #: course_ng/templates/pages/courses_list.html:86
 msgid "Clear filters"
 msgstr "清除筛选"
+
+#: course_ng/templates/users/user_detail.html:13
+msgid "(Name of user is not setup)"
+msgstr "（用户昵称未设定）"
+
+#: course_ng/templates/users/user_detail.html:15
+msgid "Department"
+msgstr "所在学部/学院"
+
+#: course_ng/templates/users/user_detail.html:16
+msgid "Major"
+msgstr "所学专业"
+
+#: course_ng/templates/users/user_detail.html:24
+msgid "Update Info"
+msgstr "更新信息"
+
+#: course_ng/templates/users/user_detail.html:27
+msgid "E-Mail"
+msgstr "邮箱"
+
+#: course_ng/templates/users/user_detail.html:34
+msgid "Review History"
+msgstr "过往评价"
+
+#: course_ng/templates/users/user_detail.html:38
+msgid "Overall Grade"
+msgstr "总体评分"
+
+#: course_ng/templates/users/user_detail.html:40
+msgid "Review Time"
+msgstr "评价时间"
+
+#: course_ng/templates/users/user_detail.html:41
+msgid "Tool"
+msgstr "工具"
+
+#: course_ng/templates/users/user_detail.html:50
+msgid "Course Page"
+msgstr "课程页面"
+
+#: course_ng/templates/users/user_detail.html:51
+msgid "Edit Review"
+msgstr "更新评价"
+
+#: course_ng/users/adapters.py:23
+msgid "Please use your UIC email. Others are restricted from registering."
+msgstr "请使用你的 UIC 邮箱，其他邮箱不允许注册。"
 
 #: course_ng/users/admin.py:23
 msgid "Personal info"
@@ -408,6 +508,11 @@ msgstr "这个邮箱已被使用。"
 #: course_ng/users/models.py:17
 msgid "Name of User"
 msgstr "昵称"
+
+#: course_ng/users/models.py:18
+msgid ""
+"input your preferred display name, this name will show under your reviews."
+msgstr "这个昵称会展示在你的评价下。"
 
 #: course_ng/users/models.py:19
 msgid "Study Department"
@@ -441,6 +546,26 @@ msgstr "评分项/材料"
 msgid ""
 "Please check all assessments and materials that includes in this course."
 msgstr "请勾选这门课涉及的所有评分项和材料。"
+
+#: courses/forms.py:93
+msgid "You can list the content / outline of this course."
+msgstr "你可以描述这门课所学的内容，或列出这门课的大纲。"
+
+#: courses/forms.py:95
+msgid "You can description the teaching style of the lecturer."
+msgstr "你可以描述授课老师的教学风格。"
+
+#: courses/forms.py:97
+msgid ""
+"You can list the assessment and the score distribution here, your final "
+"letter grading is also welcome."
+msgstr ""
+"你可以列出所有评分项的分数占比，你也可以分享你班级里的学生数量以及你的最终成"
+"绩"
+
+#: courses/forms.py:100
+msgid "You can description how many hours you need to spent on this course."
+msgstr "你可以描述你每个星期需要在这门课上花费多少时间。"
 
 #: courses/models.py:49
 msgid "No Record"
@@ -516,78 +641,78 @@ msgstr "课程笔记"
 
 #: courses/models.py:151
 msgid "Reviewer"
-msgstr "评论者"
+msgstr "评价者"
 
-#: courses/models.py:152
+#: courses/models.py:153
 msgid ""
 "Comments will only display the UID or nickname set by the user, and other "
-"information (such as email) will not be displayed in the front desk."
-msgstr "评论只会展示UID或用户设定的昵称，其他信息（如邮箱）不会在前台展示"
+"information (such as email) will not be displayed in the webpage."
+msgstr "评价只会展示UID或用户设定的昵称，其他信息（如邮箱）不会在前台展示"
 
-#: courses/models.py:154
+#: courses/models.py:157
 msgid "Review Course"
 msgstr "评价课程"
 
-#: courses/models.py:155
-msgid "Semester"
-msgstr "授课学期"
-
-#: courses/models.py:156
+#: courses/models.py:159
 msgid "Short Review Summary"
 msgstr "课程短评"
 
-#: courses/models.py:157
-msgid "Lecturer"
-msgstr "授课老师"
-
-#: courses/models.py:158
+#: courses/models.py:161
 msgid "Content Comment"
 msgstr "课程内容评价"
 
-#: courses/models.py:160
+#: courses/models.py:163
 msgid "Teaching Comment"
 msgstr "课程教学评价"
 
-#: courses/models.py:162
+#: courses/models.py:165
 msgid "Grading Comment"
 msgstr "课程给分评价"
 
-#: courses/models.py:164
+#: courses/models.py:167
 msgid "Workload Comment"
 msgstr "课程负荷评价"
 
-#: courses/models.py:166
+#: courses/models.py:169
 msgid "Has Mid-term"
 msgstr "有期中考"
 
-#: courses/models.py:167
+#: courses/models.py:170
 msgid "Has Final Exam"
 msgstr "有期末考"
 
-#: courses/models.py:168
+#: courses/models.py:171
 msgid "Has Quiz"
 msgstr "有小测"
 
-#: courses/models.py:169
+#: courses/models.py:172
 msgid "Has Assignment"
 msgstr "有作业"
 
-#: courses/models.py:170
+#: courses/models.py:173
 msgid "Has Essay"
 msgstr "有论文"
 
-#: courses/models.py:171
+#: courses/models.py:174
 msgid "Has Project"
 msgstr "有项目"
 
-#: courses/models.py:172
+#: courses/models.py:175
 msgid "Has Attendance"
 msgstr "有签到"
 
-#: courses/models.py:173
+#: courses/models.py:176
 msgid "Has Reading Material"
 msgstr "有阅读材料"
 
-#: courses/models.py:174
+#: courses/models.py:177
 msgid "Has Presentation"
 msgstr "有演示"
+
+#: courses/views.py:120
+msgid "Review is allow to update within 7 days after you initial submit."
+msgstr "评价可在首次提交的七日内进行修改。"
+
+#: courses/views.py:124
+msgid "Review is not allow to update after 7 days since your initial submit."
+msgstr "该评价已经超过更新时限（自首次提交起七天），无法修改。"

@@ -149,11 +149,14 @@ SEMESTER = [
 
 class Review(models.Model):
     reviewer = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_("Reviewer"),
-                                 help_text=_("Comments will only display the UID or nickname set by the user, and other information (such as email) will not be displayed in the front desk."))
+                                 related_name="reviewer_reviews",
+                                 help_text=_("Comments will only display the UID or nickname set by the user, "
+                                             "and other information (such as email) will not be displayed in the "
+                                             "webpage."))
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="course_reviews",
                                verbose_name=_("Review Course"))
     semester = models.CharField(_("Semester"), choices=SEMESTER, default="NOTSPEC")
-    summary = models.CharField(_("Short Review Summary"))
+    summary = models.CharField(_("Short Review Summary"), max_length=100)
     lecturer = models.ManyToManyField(Lecturer, verbose_name=_("Lecturer"), blank=True)
     content = models.TextField(_("Content Comment"), blank=True)
     content_grade = models.CharField(verbose_name="Content Letter Grade", choices=LETTER_GRADE, default='C')

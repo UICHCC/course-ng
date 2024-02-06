@@ -5,7 +5,9 @@ import typing
 from allauth.account.adapter import DefaultAccountAdapter
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 from django.conf import settings
+from django.core.exceptions import ValidationError
 from django.http import HttpRequest
+from django.utils.translation import gettext_lazy as _
 
 if typing.TYPE_CHECKING:
     from allauth.socialaccount.models import SocialLogin
@@ -14,6 +16,13 @@ if typing.TYPE_CHECKING:
 
 
 class AccountAdapter(DefaultAccountAdapter):
+
+    def clean_email(self, email):
+        AllowEmailAddress = ['uic.edu.cn', 'mail.edu.cn', 'alumni.uic.edu.cn']
+        if email.split('@')[1] not in AllowEmailAddress:
+            raise ValidationError(_('Please use your UIC email. Others are restricted from registering.'))
+        return email
+
     def is_open_for_signup(self, request: HttpRequest) -> bool:
         return getattr(settings, "ACCOUNT_ALLOW_REGISTRATION", True)
 

@@ -45,7 +45,7 @@
               {% endif %}
             {% endif %}
             <li class="page-item active" aria-current="page">
-              <a class="page-link" href="#">Page {{ page_obj.number }} of {{ paginator.num_pages }}</a>
+              <a class="page-link" href="#">{{ page_obj.number }} / {{ paginator.num_pages }}</a>
             </li>
             {% if page_obj.has_next %}
               {% if page_obj.next_page_number != paginator.num_pages %}
@@ -72,7 +72,7 @@
           </ul>
         </nav>
         </div>
-        <p>{% translate "Course" %} {{ page_obj.start_index }}&mdash;{{ page_obj.end_index }}</p>
+        <p>{% translate "Course" %} {{ page_obj.start_index }}&mdash;{{ page_obj.end_index }} ({% translate 'Total' %}: {{ page_obj.paginator.count }})</p>
       {% endif %}
 
     </div>

@@ -89,5 +89,14 @@ class ReviewForm(forms.ModelForm):
             'teaching_grade': forms.RadioSelect(),
             'workload_grade': forms.RadioSelect(),
             'grading_grade': forms.RadioSelect(),
+            'content': forms.Textarea(
+                attrs={'placeholder': _("You can list the content / outline of this course.")}),
+            'teaching': forms.Textarea(
+                attrs={'placeholder': _("You can description the teaching style of the lecturer.")}),
+            'grading': forms.Textarea(
+                attrs={'placeholder': _("You can list the assessment and the score distribution here, your final "
+                                        "letter grading is also welcome.")}),
+            'workload': forms.Textarea(
+                attrs={'placeholder': _("You can description how many hours you need to spent on this course.")}),
         }
         exclude = ["submit_date"]

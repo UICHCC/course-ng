@@ -1,9 +1,13 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from braces.views import SuperuserRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, UpdateView, ListView
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, DeleteView
+from django.contrib import messages
+from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
+import datetime
 
 from courses.models import Course, Review
 from courses.forms import CourseForm, ReviewForm
@@ -41,6 +45,11 @@ class CourseDetailView(LoginRequiredMixin, DetailView):
     model = Course
     slug_field = "id"
     slug_url_kwarg = "id"
+
+    def get_context_data(self, **kwargs):
+        context = super(CourseDetailView, self).get_context_data(**kwargs)
+        context['current_user_reviewed'] = Review.objects.filter(course=self.object.id, reviewer=self.request.user).exists()
+        return context
 
 
 course_detail_view = CourseDetailView.as_view()
@@ -99,10 +108,22 @@ class CourseReviewCreateView(LoginRequiredMixin, CreateView):
         return reverse_lazy('courses:course-detail', kwargs={'pk': self.kwargs.get('pk')})
 
 
-class CourseReviewUpdateView(LoginRequiredMixin, UpdateView):
+class CourseReviewUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     template_name = "courses/course_review_edit_form.html"
     model = Review
     form_class = ReviewForm
+
+    def test_func(self):
+        if self.get_object().submit_date > timezone.now() - datetime.timedelta(days=7):
+            messages.add_message(self.request,
+                                 messages.INFO,
+                                 _("Review is allow to update within 7 days after you initial submit."))
+        else:
+            messages.add_message(self.request,
+                                 messages.WARNING,
+                                 _("Review is not allow to update after 7 days since your initial submit."))
+            return False
+        return self.request.user == self.get_object().reviewer
 
     def get_context_data(self, **kwargs):
         context = super(CourseReviewUpdateView, self).get_context_data(**kwargs)

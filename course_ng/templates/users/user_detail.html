@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% load static %}
 
 {% block title %}
@@ -10,10 +10,10 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <h2>{{ object.name }}</h2>
+        <h4>{% if object.name %}{{ object.name }}{% else %}{% translate "(Name of user is not setup)" %}{% endif %}</h4>
         <ul>
-          <li>Department: {{ object.department }}</li>
-          <li>Major: {{ object.major }}</li>
+          <li>{% translate 'Department' %}: {{ object.department }}</li>
+          <li>{% translate 'Major' %}: {{ object.major }}</li>
         </ul>
       </div>
     </div>
@@ -21,14 +21,40 @@
       <!-- Action buttons -->
       <div class="row">
         <div class="col-sm-12">
-          <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">My Info</a>
+          <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">{% translate "Update Info" %}</a>
           <a class="btn btn-primary"
              href="{% url 'account_email' %}"
-             role="button">E-Mail</a>
+             role="button">{% translate "E-Mail" %}</a>
           <!-- Your Stuff: Custom user template urls -->
         </div>
       </div>
       <!-- End Action buttons -->
+      <hr>
+      <div class="row">
+        <h4>{% translate 'Review History' %}</h4>
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">{% translate 'Overall Grade' %}</th>
+            <th scope="col">{% translate 'Course' %}</th>
+            <th scope="col">{% translate 'Review Time' %}</th>
+            <th scope="col">{% translate 'Tool' %}</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for review in object.reviewer_reviews.all %}
+            <tr>
+              <th scope="row">{{ review.overall_grade }}</th>
+              <td>{{ review.course }}</td>
+              <td>{{ review.submit_date }}</td>
+              <td><a href="{% url 'courses:course-detail' review.course.id %}">{% translate 'Course Page' %}</a> <a
+                href="{% url 'courses:update-course-review' review.id %}">{% translate 'Edit Review' %}</a></td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+
+      </div>
     {% endif %}
   </div>
 {% endblock content %}

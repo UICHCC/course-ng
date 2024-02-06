@@ -14,6 +14,7 @@ urlpatterns = [
     path("courses/", include("courses.urls", namespace="courses")),
     path("accounts/", include("allauth.urls")),
     path("invitations/", include('invitations.urls', namespace='invitations')),
+    path("i18n/", include("django.conf.urls.i18n")),
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -105,7 +105,7 @@
       </div>
       <div class="d-flex flex-column align-items-end align-self-center">
         <h2>
-          <span class="badge bg-primary">{{ course.course_units }} units</span>
+          <span class="badge bg-primary">{{ course.course_units }} {% translate 'units' %}</span>
         </h2>
         <span>
         <span>{% translate "Update time" %}: {{ course.update_time }}</span></span>
@@ -197,17 +197,17 @@
       </div>
       <div class="card mb-3" style="min-width: 20rem">
         <div class="card-body">
-          <h5 class="card-title text-center">{{ course.course_reviews.all|length }} Review(s)</h5>
+          <h5 class="card-title text-center">{{ course.course_reviews.all|length }} {% translate 'review(s)' %}</h5>
           <div class="container text-center">
             <div class="row">
               <div class="col align-self-start">
-                <small>CONTENT</small>
+                <span class="text-primary fw-bold text-uppercase"><small>{% translate 'content' %}</small></span>
                 <h4>
                   {% letter_grade_badge course.overall_grade.content %}
                 </h4>
               </div>
               <div class="col align-self-center">
-                <small>TEACHING</small>
+                <span class="text-primary fw-bold text-uppercase"><small>{% translate 'teaching' %}</small></span>
                 <h4>
                   {% letter_grade_badge course.overall_grade.teaching %}
                 </h4>
@@ -215,13 +215,13 @@
             </div>
             <div class="row">
               <div class="col align-self-start">
-                <small>GRADING</small>
+                <span class="text-primary fw-bold text-uppercase"><small>{% translate 'grading' %}</small></span>
                 <h4>
                   {% letter_grade_badge course.overall_grade.grading %}
                 </h4>
               </div>
               <div class="col align-self-center">
-                <small>WORKLOAD</small>
+                <span class="text-primary fw-bold text-uppercase"><small>{% translate 'workload' %}</small></span>
                 <h4>
                   {% letter_grade_badge course.overall_grade.workload %}
                 </h4>
@@ -237,7 +237,7 @@
            id="course_description_accordion">
         <div class="accordion-item">
           <h2 class="accordion-header">
-            <button class="accordion-button" disabled>Course Description</button>
+            <button class="accordion-button" disabled>{% translate 'Course Description' %}</button>
           </h2>
           <div id="course_description"
                class="accordion-collapse collapse {% if course.course_description|length < 500 %}show{% endif %}"
@@ -250,19 +250,22 @@
                     data-bs-toggle="collapse"
                     data-bs-target="#course_description"
                     aria-expanded="{% if course.course_description|length > 500 %}true{% else %}false{% endif %}"
-                    aria-controls="course_description">Expend / Collapse
+                    aria-controls="course_description">{% translate 'Expend / Collapse' %}
             </button>
           </h2>
         </div>
       </div>
     </div>
-    <h3>Reviews</h3>
+    <h3>{% translate 'Reviews' %}</h3>
+    {% if not current_user_reviewed %}
+      <a href="{% url 'courses:create-course-review' course.id %}" type="button" class="btn btn-primary">Add your review</a>
+    {% endif %}
     {% if course.course_reviews.all %}
     {% for review in course.course_reviews.all %}
       {% include 'courses/course-review-block.html' %}
     {% endfor %}
     {% else %}
-      <a href="{% url 'courses:create-course-review' course.id %}" type="button" class="btn btn-primary">Add your review</a>
+      {% translate "No Review" %}
     {% endif %}
   </div>
 {% endblock content %}
