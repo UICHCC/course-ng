@@ -14,7 +14,7 @@ from courses.forms import CourseForm, ReviewForm
 from courses.filters import CourseFilterSet
 
 
-class CourseListView(LoginRequiredMixin, ListView):
+class CourseListView(ListView):
     filter_set = CourseFilterSet
     model = Course
     paginate_by = 15
@@ -32,7 +32,7 @@ class CourseListView(LoginRequiredMixin, ListView):
         return context
 
 
-class CourseHomePageView(LoginRequiredMixin, TemplateView):
+class CourseHomePageView(TemplateView):
     template_name = "pages/courses.html"
 
     def get_context_data(self, **kwargs):
@@ -41,14 +41,14 @@ class CourseHomePageView(LoginRequiredMixin, TemplateView):
         return context
 
 
-class CourseDetailView(LoginRequiredMixin, DetailView):
+class CourseDetailView(DetailView):
     model = Course
     slug_field = "id"
     slug_url_kwarg = "id"
 
     def get_context_data(self, **kwargs):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
-        context['current_user_reviewed'] = Review.objects.filter(course=self.object.id, reviewer=self.request.user).exists()
+        context['current_user_reviewed'] = Review.objects.filter(course=self.object.id, reviewer=self.request.user.id).exists()
         return context
 
 

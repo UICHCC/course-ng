@@ -46,8 +46,8 @@ def course_link(value):
         if course.exists():
             course = course.first()
             output_string = output_string.replace(course_code, f"<a href='{reverse('courses:course-detail', args=[course.id])}'>{course_code}</a>")
-    output_string = output_string.replace(" or ", " <span class='text-danger'>or</span> ")
-    output_string = output_string.replace(" and ", " <span class='text-success'>and</span> ")
+    output_string = output_string.replace(" or ", " <span class='text-danger'>or</span><br/>")
+    output_string = output_string.replace(" and ", "<br/><span class='text-success'>and</span><br/>")
     return output_string
 
 

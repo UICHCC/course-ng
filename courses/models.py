@@ -54,6 +54,7 @@ class Course(models.Model):
         ("FE", _("Free Elective")),
         ("BBA", _("BBA (Hons) Core")),
         ("CR", _("Concentration Required")),
+        ("MX", _("Mixed Type (Check Notes For Detail)"))
     ]
     course_code = models.CharField(_("Course Code"), max_length=32)
     course_name_en = models.CharField(_("Course English Name"), max_length=128)

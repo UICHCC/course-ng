@@ -320,7 +320,7 @@ msgstr "教学"
 
 #: course_ng/templates/courses/course-review-block.html:26
 msgid "grading"
-msgstr "评分"
+msgstr "给分"
 
 #: course_ng/templates/courses/course-review-block.html:30
 msgid "workload"
@@ -659,19 +659,19 @@ msgstr "课程短评"
 
 #: courses/models.py:161
 msgid "Content Comment"
-msgstr "课程内容评价"
+msgstr "评价课程内容"
 
 #: courses/models.py:163
 msgid "Teaching Comment"
-msgstr "课程教学评价"
+msgstr "评价课程教学"
 
 #: courses/models.py:165
 msgid "Grading Comment"
-msgstr "课程给分评价"
+msgstr "评价课程给分"
 
 #: courses/models.py:167
 msgid "Workload Comment"
-msgstr "课程负荷评价"
+msgstr "评价课程负荷"
 
 #: courses/models.py:169
 msgid "Has Mid-term"
